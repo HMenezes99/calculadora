@@ -1,0 +1,34 @@
+*{
+    font-family: "Verdana", sans-serif;
+}
+
+body{
+    background: linear-gradient(to left, #E70FAA, #00BEFB);
+    min-width: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.initial_number{
+    color: white;
+}
+
+.container{
+    background-color: #252525;
+    max-width: 360px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 35px;
+    border-radius: 15px;
+
+}
+
+.numericos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
