@@ -10,6 +10,17 @@ body{
     align-items: center;
 }
 
+h1{
+    width: fit-content;
+    font-size: 30px;
+    background: linear-gradient(to left, #E70FAA, #00BEFB);
+    background: -webkit-linear-gradient(to left, #E70FAA, #00BEFB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: #E70FAA, #00BEFB 2s infinite;
+}
+
+
 .initial_number{
     color: white;
 }
