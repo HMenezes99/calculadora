@@ -1,7 +1,11 @@
+
 *{
     font-family: "Verdana", sans-serif;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 
 body{
     width: 100vw;
@@ -9,6 +13,17 @@ body{
     background: linear-gradient(to left, #E70FAA, #00BEFB);
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.container{
+    border-radius: 15px;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: #252525;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -22,37 +37,23 @@ h1{
     animation: #E70FAA, #00BEFB 2s infinite;
 }
 
-.box{
+.display{
     text-align: end;
-    width: 13.5vw;
+    width: 100%;
+    height: 70%;
+    padding: 15px;
     border: 2px solid #00BEFB;
-    padding: 5px 19px;
+    padding: 5px 19px; 
+    
 }
 
 .initial_number{
     color: white;
 }
 
-.container{
-    background-color: #252525;
-    width: 20vw;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 25px 35px;
-    border-radius: 15px;
-
-}
-
-.numericos{
+.calculator_button{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 5px;
+    grid-gap:10px;
 }
 
-
-.numericos > * {
-    font-size: 22px;
-}
