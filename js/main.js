@@ -1,4 +1,4 @@
-let inputresultado = document.getElementById("inputDisplayResultado")
+let inputResultado = document.getElementById("inputDisplayResultado")
 
 let calculo = {
     primeiroValor: 0, 
@@ -25,18 +25,24 @@ function atribuirEventos(){
     document.getElementById("btnValor0").addEventListener("click", inserirNumero);
     document.getElementById("btnValor00").addEventListener("click", inserirNumero);
 
-    document.getElementById("clear").addEventListener("click", limparDados)
+    document.getElementById("clear").addEventListener("click", limparDados);
+    document.getElementById("btnDecimal").addEventListener("click", InserirPonto);
+
+    document.getElementById("btnDividir").addEventListener("click", clicarOperador);
+    document.getElementById("btnMultiplicar").addEventListener("click", clicarOperador);
+    document.getElementById("btnSubtrair").addEventListener("click", clicarOperador);
+    document.getElementById("btnSomar").addEventListener("click", clicarOperador);
 }
 
 //Ira inserir um numero na calculadora
 function inserirNumero(){
-    if(isNaN(inputresultado.value)){
-     inputresultado.value = event.target.textContent;
+    if(isNaN(inputResultado.value)){
+     inputResultado.value = event.target.textContent;
     }else{
-        if(inputresultado.value == 0){
-            inputresultado.value = event.target.textContent;
+        if(inputResultado.value == 0){
+            inputResultado.value = event.target.textContent;
         }else{
-            inputresultado.value += event.target.textContent;
+            inputResultado.value += event.target.textContent;
         }
     }
 }
@@ -64,8 +70,38 @@ function dividirValores(valor1, valor2){
 
 //função para limpar
 function limparDados(){
-    inputresultado.value = "";
+    inputResultado.value = "";
     calculo.primeiroValor = 0;
     calculo.segundoValor = 0;
     calculo.funcaoParaCalcular = null;
+}
+
+function InserirPonto(){
+    if(inputResultado.value === "" || isNaN(inputResultado.value)){
+        inputResultado.value = "0.";
+    }else if(!inputResultado.value.includes(".")){
+        inputResultado.value = inputResultado.value + ".";
+    }
+}
+
+function clicarOperador(){
+    if(!isNaN(inputResultado.value)){
+        calculo.primeiroValor = Number(inputResultado.value);
+    }
+    let operador = event.target.textContent;
+    atribuirOperacao(operador);
+    inputResultado.value = operador;
+}
+
+function atribuirOperacao(operador){
+    if(operador == "+"){
+        calculo.funcaoParaCalcular = somarValores;
+    }else if(operador =="-"){
+        calculo.funcaoParaCalcular = subtrairValores;
+    }else if(operador =="x"){
+        calculo.funcaoParaCalcular = multiplicarValores;
+    }else {
+        calculo.funcaoParaCalcular = dividirValores;
+    }
+    
 }
