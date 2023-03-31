@@ -7,11 +7,13 @@
 }
 
 
+
+
 body{
     width: 100vw;
     height: 100vh;
     background: linear-gradient(to left, #E70FAA, #00BEFB);
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
 }
@@ -60,3 +62,20 @@ button{
 button:hover{
     background: linear-gradient(to left, #E70FAA, #00BEFB);
 }
+
+footer{
+    
+    align-self: end;
+    width: 100%;
+}
+
+
+.github {
+    text-align: center;
+    width: fit-content;
+    font-size: 15px;
+    background: linear-gradient(to left, white, #808080);
+    background: -webkit-linear-gradient(to left, white, #808080);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
