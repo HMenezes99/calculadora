@@ -35,17 +35,32 @@ function atribuirEventos(){
 }
 
 //Ira inserir um numero na calculadora
-function inserirNumero(){
-    if(isNaN(inputResultado.value)){
-     inputResultado.value = event.target.textContent;
-    }else{
-        if(inputResultado.value == 0){
+function inserirNumero() {
+    if (isNaN(inputResultado.value)) {
+        inputResultado.value = event.target.textContent;
+    } else {
+        if (inputResultado.value == 0) {
             inputResultado.value = event.target.textContent;
-        }else{
+        } else {
             inputResultado.value += event.target.textContent;
         }
     }
 }
+
+
+document.getElementById("btnIgual").addEventListener("click", function () {
+    if (!isNaN(inputResultado.value)) {
+        calculo.segundoValor = Number(inputResultado.value);
+        if (calculo.funcaoParaCalcular) {
+            const resultado = calculo.funcaoParaCalcular(
+                calculo.primeiroValor,
+                calculo.segundoValor
+            );
+            inputResultado.value = resultado;
+            calculo.primeiroValor = resultado;
+        }
+    }
+});
 
 
 
