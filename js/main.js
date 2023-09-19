@@ -27,7 +27,7 @@ function atribuirEventos(){
 
     document.getElementById("clear").addEventListener("click", limparDados);
     document.getElementById("btnDecimal").addEventListener("click", InserirPonto);
-
+    document.getElementById("btnPorcentagem").addEventListener("click", calcularPorcentagem);
     document.getElementById("btnDividir").addEventListener("click", clicarOperador);
     document.getElementById("btnMultiplicar").addEventListener("click", clicarOperador);
     document.getElementById("btnSubtrair").addEventListener("click", clicarOperador);
@@ -61,6 +61,32 @@ document.getElementById("btnIgual").addEventListener("click", function () {
         }
     }
 });
+
+function calcularPorcentagem() {
+    if (!isNaN(inputResultado.value) && calculo.funcaoParaCalcular === null) {
+        calculo.primeiroValor = Number(inputResultado.value);
+        inputResultado.value = "0";
+        calculo.funcaoParaCalcular = function(valor1, valor2) {
+            return (valor1 * valor2) / 100;
+        };
+    }
+}
+function clicarOperador() {
+    if (!isNaN(inputResultado.value) && calculo.funcaoParaCalcular === null) {
+        calculo.primeiroValor = Number(inputResultado.value);
+        let operador = event.target.textContent;
+        atribuirOperacao(operador);
+        inputResultado.value = operador;
+    } else if (calculo.funcaoParaCalcular !== null) {
+        calculo.segundoValor = Number(inputResultado.value);
+        const resultado = calculo.funcaoParaCalcular(calculo.primeiroValor, calculo.segundoValor);
+        inputResultado.value = resultado;
+        calculo.primeiroValor = resultado;
+        calculo.segundoValor = null;
+        let operador = event.target.textContent;
+        atribuirOperacao(operador);
+    }
+}
 
 
 
